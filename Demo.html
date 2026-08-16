@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anmol's Library</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#05070c;
+    color:white;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* HEADER */
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:70px;
+    padding:0 6%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:rgba(5,7,12,.96);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #252b35;
+    z-index:1000;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.logo-dot{
+    width:13px;
+    height:13px;
+    background:#ff4938;
+    border-radius:50%;
+    box-shadow:0 0 15px #ff4938;
+}
+
+.logo span{
+    color:#ff4938;
+}
+
+nav ul{
+    display:flex;
+    gap:25px;
+    list-style:none;
+}
+
+nav a{
+    color:#bfc5ce;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#ff4938;
+}
+
+.signup-button{
+    padding:10px 22px;
+    color:white;
+    background:transparent;
+    border:1px solid #ff4938;
+    border-radius:5px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.signup-button:hover{
+    background:#ff4938;
+    box-shadow:0 0 20px rgba(255,73,56,.3);
+}
+
+/* HERO */
+.hero{
+    min-height:720px;
+    display:flex;
+    align-items:center;
+    padding:130px 7% 80px;
+    background-image:
+        linear-gradient(
+            90deg,
+            #05070c 4%,
+            rgba(5,7,12,.88) 30%,
+            rgba(5,7,12,.45) 65%,
+            rgba(5,7,12,.25) 100%
+        ),
+        url("https://wallpaper.forfun.com/fetch/d1/d16c9006bc8b64bd18188caa74ab92af.jpeg");
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        0deg,
+        #05070c 0%,
+        transparent 30%,
+        transparent 70%,
+        rgba(0,0,0,.4) 100%
+    );
+    pointer-events:none;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+}
+
+.hero-small{
+    color:#d5aa68;
+    letter-spacing:5px;
+    font-size:13px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(48px,7vw,82px);
+    line-height:.98;
+    margin-bottom:25px;
+    text-shadow:0 5px 25px rgba(0,0,0,.8);
+}
+
+.hero h1 span{
+    color:#ff4938;
+    text-shadow:0 0 25px rgba(255,73,56,.35);
+}
+
+.hero p{
+    max-width:570px;
+    color:#c0c6cf;
+    font-size:16px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:13px 25px;
+    border:1px solid #ff4938;
+    border-radius:5px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.primary{
+    background:#ff4938;
+}
+
+.primary:hover{
+    background:#ff654f;
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(255,73,56,.25);
+}
+
+.secondary:hover{
+    background:#ff4938;
+    transform:translateY(-2px);
+}
+
+.subscription-button{
+    border:1px solid #d5aa68;
+    background:linear-gradient(
+        135deg,
+        rgba(213,170,104,.15),
+        rgba(255,73,56,.12)
+    );
+    color:#f1cf8c;
+    position:relative;
+    overflow:hidden;
+}
+
+.subscription-button:hover{
+    color:white;
+    border-color:#ff4938;
+    background:#ff4938;
+    transform:translateY(-2px);
+}
+
+.creator{
+    margin-top:35px;
+    color:#9fa8b5;
+    font-size:14px;
+}
+
+.creator strong{
+    color:white;
+}
+
+.instagram{
+    margin-left:18px;
+    color:#e46be8;
+}
+
+.instagram:hover{
+    text-decoration:underline;
+}
+
+/* TRENDING */
+.trending{
+    height:45px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    padding:0 5%;
+    background:#090d14;
+    border-top:1px solid #202631;
+    border-bottom:1px solid #202631;
+    overflow:hidden;
+}
+
+.trending-title{
+    color:#ff4938;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.trending span{
+    color:#8d96a3;
+    font-size:12px;
+    white-space:nowrap;
+}
+
+/* SECTIONS */
+section{
+    padding:70px 5%;
+}
+
+.section-heading{
+    margin-bottom:30px;
+}
+
+.section-heading h2{
+    color:#ff4938;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.section-heading p{
+    color:#8f98a5;
+    font-size:14px;
+}
+
+/* SEARCH */
+.search-section{
+    padding-top:35px;
+    padding-bottom:20px;
+}
+
+.search-container{
+    display:flex;
+    justify-content:center;
+}
+
+.search-box{
+    width:min(600px,100%);
+    padding:14px 18px;
+    background:#0d121a;
+    border:1px solid #252d38;
+    border-radius:6px;
+    color:white;
+    outline:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+.search-box:focus{
+    border-color:#ff4938;
+    box-shadow:0 0 15px rgba(255,73,56,.15);
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#0d121a;
+    border:1px solid #202733;
+    border-radius:6px;
+    overflow:hidden;
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ff4938;
+    box-shadow:0 15px 40px rgba(0,0,0,.5);
+}
+
+.poster{
+    height:280px;
+    background:#151b24;
+    overflow:hidden;
+}
+
+.poster img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.4s;
+}
+
+.card:hover .poster img{
+    transform:scale(1.06);
+}
+
+.card-info{
+    padding:13px;
+}
+
+.card-info h3{
+    min-height:40px;
+    font-size:16px;
+    line-height:1.3;
+    margin-bottom:7px;
+}
+
+.rating{
+    color:#ff4938;
+    font-size:12px;
+}
+
+.watch{
+    color:#aab1bc;
+    font-size:11px;
+    margin-top:7px;
+}
+
+.watch::before{
+    content:"▶ ";
+    color:red;
+}
+
+.movie-section,
+.youtube-section{
+    background:#080c13;
+}
+
+/* YOUTUBE */
+.youtube-box{
+    min-height:300px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    background:#101720;
+    border:1px solid #252d38;
+    border-radius:8px;
+}
+
+.youtube-icon{
+    width:90px;
+    height:62px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:red;
+    border-radius:16px;
+    font-size:32px;
+    margin-bottom:20px;
+}
+
+.youtube-box h3{
+    font-size:25px;
+    margin-bottom:10px;
+}
+
+.youtube-box p{
+    color:#929ba7;
+    margin-bottom:20px;
+}
+
+/* SERIES */
+.series-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+}
+
+.series-card{
+    height:260px;
+    position:relative;
+    overflow:hidden;
+    border-radius:6px;
+    border:1px solid #222a36;
+}
+
+.series-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.series-card:hover img{
+    transform:scale(1.08);
+}
+
+.series-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        transparent 40%,
+        rgba(0,0,0,.9)
+    );
+}
+
+.series-name{
+    position:absolute;
+    left:15px;
+    bottom:15px;
+    z-index:2;
+    font-size:17px;
+    font-weight:bold;
+}
+
+/* ABOUT */
+.about{
+    max-width:800px;
+    margin:auto;
+    text-align:center;
+}
+
+.about h2{
+    color:#ff4938;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.about p{
+    color:#929ba7;
+    line-height:1.8;
+}
+
+/* FOOTER */
+footer{
+    padding:60px 5% 25px;
+    text-align:center;
+    background:#03050a;
+    border-top:1px solid #202733;
+}
+
+.footer-title{
+    color:#ff4938;
+    font-size:21px;
+    margin-bottom:15px;
+}
+
+.footer-instagram{
+    color:#e46be8;
+    margin-bottom:25px;
+}
+
+.footer-instagram a:hover{
+    text-decoration:underline;
+}
+
+.footer-credit{
+    color:#666f7c;
+    font-size:11px;
+    margin-top:20px;
+    line-height:1.6;
+}
+
+.footer-bottom{
+    padding-top:20px;
+    border-top:1px solid #202733;
+    color:#69727e;
+    font-size:12px;
+    margin-top:20px;
+}
+
+/* MODALS */
+.modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(8px);
+    z-index:5000;
+}
+
+.modal.active{
+    display:flex;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:10px;
+    width:35px;
+    height:35px;
+    border:none;
+    background:transparent;
+    color:white;
+    font-size:27px;
+    cursor:pointer;
+    z-index:5;
+}
+
+/* SIGNUP */
+.signup-content{
+    width:min(760px,100%);
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:30px;
+    padding:25px;
+    background:#101720;
+    border:1px solid #343d49;
+    border-radius:15px;
+    box-shadow:0 30px 80px rgba(0,0,0,.7);
+    animation:popup .35s ease;
+}
+
+.modal-image{
+    width:300px;
+    height:300px;
+    flex-shrink:0;
+    overflow:hidden;
+    border-radius:12px;
+    background:#080c13;
+}
+
+.modal-image img{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+}
+
+.modal-text{
+    flex:1;
+}
+
+.modal-text h2{
+    font-size:28px;
+    margin-bottom:15px;
+}
+
+.modal-text p{
+    color:#ddd;
+    line-height:1.7;
+    margin-bottom:20px;
+}
+
+.sleep-button{
+    padding:12px 22px;
+    background:#ff4938;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.sleep-button:hover{
+    background:#ff654f;
+}
+
+/* SUBSCRIPTION */
+.subscription-modal{
+    overflow-y:auto;
+    padding:40px 20px;
+}
+
+.subscription-content{
+    width:min(1100px,100%);
+    position:relative;
+    padding:40px;
+    background:
+        radial-gradient(
+            circle at top right,
+            rgba(255,73,56,.13),
+            transparent 35%
+        ),
+        #0b1018;
+    border:1px solid #2d3642;
+    border-radius:18px;
+    box-shadow:0 30px 100px rgba(0,0,0,.8);
+    animation:subscriptionOpen .45s ease;
+}
+
+.subscription-header{
+    text-align:center;
+    margin-bottom:35px;
+}
+
+.premium-label{
+    display:inline-block;
+    color:#f0c878;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:4px;
+    margin-bottom:12px;
+}
+
+.subscription-header h2{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.subscription-header h2 span{
+    color:#ff4938;
+}
+
+.subscription-header p{
+    color:#929ba7;
+    line-height:1.6;
+}
+
+.plans{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.plan{
+    position:relative;
+    padding:28px;
+    background:linear-gradient(145deg,#111923,#0b1017);
+    border:1px solid #28313d;
+    border-radius:14px;
+    transition:.3s;
+}
+
+.plan:hover{
+    transform:translateY(-10px);
+    border-color:#ff4938;
+    box-shadow:0 20px 50px rgba(255,73,56,.12);
+}
+
+.plan.featured{
+    border-color:#d5aa68;
+    transform:scale(1.03);
+    box-shadow:0 0 35px rgba(213,170,104,.10);
+}
+
+.plan.featured:hover{
+    transform:scale(1.03) translateY(-10px);
+}
+
+.popular{
+    position:absolute;
+    top:-12px;
+    left:50%;
+    transform:translateX(-50%);
+    padding:6px 14px;
+    background:#d5aa68;
+    color:#111;
+    border-radius:20px;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:1px;
+    white-space:nowrap;
+}
+
+.plan-icon{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom:20px;
+    background:rgba(255,73,56,.1);
+    border:1px solid rgba(255,73,56,.25);
+    border-radius:12px;
+    font-size:22px;
+}
+
+.plan h3{
+    font-size:22px;
+    margin-bottom:8px;
+}
+
+.plan-description{
+    min-height:50px;
+    color:#858f9c;
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:20px;
+}
+
+.price{
+    margin-bottom:25px;
+}
+
+.price strong{
+    font-size:38px;
+}
+
+.price span{
+    color:#858f9c;
+    font-size:13px;
+}
+
+.features{
+    list-style:none;
+    margin-bottom:25px;
+}
+
+.features li{
+    color:#c0c7d0;
+    font-size:13px;
+    margin-bottom:13px;
+    padding-left:22px;
+    position:relative;
+}
+
+.features li::before{
+    content:"✓";
+    position:absolute;
+    left:0;
+    color:#ff4938;
+    font-weight:bold;
+}
+
+.plan-button{
+    width:100%;
+    padding:13px;
+    background:transparent;
+    color:white;
+    border:1px solid #3a444f;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.plan-button:hover,
+.plan.featured .plan-button{
+    background:#ff4938;
+    border-color:#ff4938;
+    box-shadow:0 8px 25px rgba(255,73,56,.2);
+}
+
+.subscription-note{
+    text-align:center;
+    color:#687381;
+    font-size:11px;
+    line-height:1.6;
+    margin-top:30px;
+}
+
+/* TOAST */
+.toast{
+    position:fixed;
+    left:50%;
+    bottom:30px;
+    transform:translate(-50%,120px);
+    padding:14px 22px;
+    background:#151d27;
+    border:1px solid #35404d;
+    border-radius:8px;
+    color:white;
+    font-size:13px;
+    box-shadow:0 15px 40px rgba(0,0,0,.5);
+    opacity:0;
+    transition:.35s;
+    z-index:9000;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translate(-50%,0);
+}
+
+.hidden-card{
+    display:none !important;
+}
+
+/* ANIMATIONS */
+@keyframes popup{
+    from{
+        opacity:0;
+        transform:scale(.85) translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+@keyframes subscriptionOpen{
+    from{
+        opacity:0;
+        transform:scale(.92) translateY(35px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    nav{
+        display:none;
+    }
+
+    .plans{
+        grid-template-columns:1fr;
+    }
+
+    .plan.featured{
+        transform:none;
+    }
+
+    .plan.featured:hover{
+        transform:translateY(-10px);
+    }
+}
+
+@media(max-width:800px){
+
+    header{
+        padding:0 20px;
+    }
+
+    .hero{
+        min-height:680px;
+        padding:120px 25px 60px;
+        background-position:65% center;
+    }
+
+    .hero h1{
+        font-size:55px;
+    }
+
+    .instagram{
+        display:block;
+        margin-left:0;
+        margin-top:8px;
+    }
+
+    .signup-content{
+        flex-direction:column;
+        max-height:90vh;
+        overflow-y:auto;
+        text-align:center;
+    }
+
+    .modal-image{
+        width:250px;
+        height:250px;
+    }
+
+    .subscription-content{
+        padding:30px 20px;
+    }
+}
+
+@media(max-width:500px){
+
+    .logo{
+        font-size:17px;
+    }
+
+    .signup-button{
+        padding:8px 14px;
+    }
+
+    .hero h1{
+        font-size:45px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .poster{
+        height:230px;
+    }
+
+    .card-info h3{
+        font-size:14px;
+    }
+
+    .modal-image{
+        width:210px;
+        height:210px;
+    }
+
+    .subscription-header h2{
+        font-size:29px;
+    }
+
+    .subscription-content{
+        padding:30px 15px;
+    }
+
+    .plan{
+        padding:23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+    <div class="logo">
+        <div class="logo-dot"></div>
+
+        <div>
+            Anmol's <span>Library</span>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#anime">Anime</a></li>
+            <li><a href="#movies">Movies</a></li>
+            <li><a href="#series">Series</a></li>
+            <li><a href="#youtube">YouTube</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <button
+        class="signup-button"
+        onclick="openSignup()"
+    >
+        Sign Up
+    </button>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-small">
+            ANIME • MOVIES • SERIES
+        </div>
+
+        <h1>
+            India's First
+            <br>
+            <span>Bullshit Site</span>
+        </h1>
+
+        <p>
+            Welcome to Anmol's Library.
+            Explore anime, movies and series
+            collected in one place.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#anime"
+                class="btn primary"
+            >
+                ▶ Start Exploring
+            </a>
+
+            <a
+                href="#movies"
+                class="btn secondary"
+            >
+                Browse Movies →
+            </a>
+
+            <button
+                class="btn subscription-button"
+                onclick="openSubscription()"
+            >
+                ✦ Subscription
+            </button>
+
+        </div>
+
+        <div class="creator">
+
+            Made by
+            <strong>Anmol Korambe</strong>
+
+            <a
+                class="instagram"
+                href="https://www.instagram.com/anmol.k01/?utm_source=qr&igsh=MW04NmVsNW5hZnVzeg=="
+                target="_blank"
+                rel="noopener"
+            >
+                @anmol.k01
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TRENDING -->
+<div class="trending">
+
+    <div class="trending-title">
+        TRENDING
+    </div>
+
+    <span>Attack on Titan</span>
+    <span>Demon Slayer</span>
+    <span>One Piece</span>
+    <span>Jujutsu Kaisen</span>
+    <span>Naruto</span>
+    <span>Death Note</span>
+
+</div>
+
+
+<!-- SEARCH -->
+<section class="search-section">
+
+    <div class="search-container">
+
+        <input
+            id="searchInput"
+            class="search-box"
+            type="text"
+            placeholder="Search anime, movies or series..."
+            onkeyup="searchContent()"
+        >
+
+    </div>
+
+</section>
+
+
+<!-- ANIME -->
+<section id="anime">
+
+    <div class="section-heading">
+
+        <h2>ANIME</h2>
+
+        <p>
+            Popular anime from Anmol's collection.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+
+        <!-- ATTACK ON TITAN -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40369"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/en/7/7f/Attack_on_Titan_Season_1.png"
+                    alt="Attack on Titan"
+                    onerror="this.src='https://placehold.co/600x900/111827/ffffff?text=Attack+on+Titan'"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>Attack on Titan</h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="watch">
+                    Open Anime
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- DEMON SLAYER -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40369"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/en/7/7a/Kimetsu_no_Yaiba_volume_1.jpg"
+                    alt="Demon Slayer"
+                    onerror="this.src='https://placehold.co/600x900/111827/ffffff?text=Demon+Slayer'"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>Demon Slayer</h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="watch">
+                    Open Anime
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- ONE PIECE -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40369"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/en/6/65/One_Piece%2C_Volume_61_Cover.jpg"
+                    alt="One Piece"
+                    onerror="this.src='https://placehold.co/600x900/111827/ffffff?text=One+Piece'"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>One Piece</h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="watch">
+                    Open Anime
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- JUJUTSU KAISEN -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40369"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/en/4/46/Jujutsu_Kaisen_volume_1.jpg"
+                    alt="Jujutsu Kaisen"
+                    onerror="this.src='https://placehold.co/600x900/111827/ffffff?text=Jujutsu+Kaisen'"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>Jujutsu Kaisen</h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="watch">
+                    Open Anime
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- NARUTO -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40369"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/en/9/94/NarutoCoverTankobon1.jpg"
+                    alt="Naruto"
+                    onerror="this.src='https://placehold.co/600x900/111827/ffffff?text=Naruto'"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>Naruto</h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="watch">
+                    Open Anime
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- DEATH NOTE -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40369"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://upload.wikimedia.org/wikipedia/en/6/6f/Death_Note_Vol_1.jpg"
+                    alt="Death Note"
+                    onerror="this.src='https://placehold.co/600x900/111827/ffffff?text=Death+Note'"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>Death Note</h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="watch">
+                    Open Anime
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- MOVIES -->
+<section
+    id="movies"
+    class="movie-section"
+>
+
+    <div class="section-heading">
+
+        <h2>MOVIES</h2>
+
+        <p>
+            Movies added to Anmol's Library.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+
+        <!-- SPIDER-MAN -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40368"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://images.unsplash.com/photo-1635805737707-575885ab0820?auto=format&fit=crop&w=700&q=80"
+                    alt="Spider-Man Brand New Day"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>
+                    Spider-Man:
+                    Brand New Day
+                </h3>
+
+                <div class="rating">
+                    ★★★★★
+                </div>
+
+                <div class="watch">
+                    Open Movie
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- BOULEVARD -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40368"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=700&q=80"
+                    alt="Boulevard"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>Boulevard</h3>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="watch">
+                    Open Movie
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- NAGABANDHAM -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40368"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://images.unsplash.com/photo-1518930259200-0e7a3b9a8b75?auto=format&fit=crop&w=700&q=80"
+                    alt="Nagabandham"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>Nagabandham</h3>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="watch">
+                    Open Movie
+                </div>
+
+            </div>
+
+        </a>
+
+
+        <!-- DHAMAAL 4 -->
+        <a
+            class="card searchable"
+            href="https://t.me/hindi_movies_frre/40368"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <div class="poster">
+
+                <img
+                    src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=700&q=80"
+                    alt="Dhamaal 4"
+                >
+
+            </div>
+
+            <div class="card-info">
+
+                <h3>Dhamaal 4</h3>
+
+                <div class="rating">
+                    ★★★★☆
+                </div>
+
+                <div class="watch">
+                    Open Movie
+                </div>
+
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- YOUTUBE -->
+<section
+    id="youtube"
+    class="youtube-section"
+>
+
+    <div class="section-heading">
+
+        <h2>YOUTUBE MOVIES</h2>
+
+        <p>
+            Movies, trailers and entertainment.
+        </p>
+
+    </div>
+
+    <div class="youtube-box">
+
+        <div class="youtube-icon">
+            ▶
+        </div>
+
+        <h3>
+            Explore YouTube
+        </h3>
+
+        <p>
+            Search for movies and trailers.
+        </p>
+
+        <a
+            href="https://www.youtube.com/results?search_query=full+movie+official"
+            target="_blank"
+            rel="noopener"
+            class="btn primary"
+        >
+            Browse YouTube
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- SERIES -->
+<section id="series">
+
+    <div class="section-heading">
+
+        <h2>SERIES</h2>
+
+        <p>
+            Binge-worthy series.
+        </p>
+
+    </div>
+
+    <div class="series-grid">
+
+
+        <a
+            class="series-card"
+            href="https://www.youtube.com/results?search_query=Stranger+Things"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1596727147705-61a532a659bd?auto=format&fit=crop&w=700&q=80"
+                alt="Stranger Things"
+            >
+
+            <div class="series-name">
+                Stranger Things
+            </div>
+
+        </a>
+
+
+        <a
+            class="series-card"
+            href="https://www.youtube.com/results?search_query=Wednesday"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&w=700&q=80"
+                alt="Wednesday"
+            >
+
+            <div class="series-name">
+                Wednesday
+            </div>
+
+        </a>
+
+
+        <a
+            class="series-card"
+            href="https://www.youtube.com/results?search_query=The+Last+of+Us"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80"
+                alt="The Last of Us"
+            >
+
+            <div class="series-name">
+                The Last of Us
+            </div>
+
+        </a>
+
+
+        <a
+            class="series-card"
+            href="https://www.youtube.com/results?search_query=Squid+Game"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1604076913837-52ab5629fba9?auto=format&fit=crop&w=700&q=80"
+                alt="Squid Game"
+            >
+
+            <div class="series-name">
+                Squid Game
+            </div>
+
+        </a>
+
+
+        <a
+            class="series-card"
+            href="https://www.youtube.com/results?search_query=Money+Heist"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=700&q=80"
+                alt="Money Heist"
+            >
+
+            <div class="series-name">
+                Money Heist
+            </div>
+
+        </a>
+
+
+        <a
+            class="series-card"
+            href="https://www.youtube.com/results?search_query=Breaking+Bad"
+            target="_blank"
+            rel="noopener"
+        >
+
+            <img
+                src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=700&q=80"
+                alt="Breaking Bad"
+            >
+
+            <div class="series-name">
+                Breaking Bad
+            </div>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+    <div class="about">
+
+        <h2>
+            ABOUT ANMOL'S LIBRARY
+        </h2>
+
+        <p>
+            Anmol's Library is a personal
+            entertainment website created by
+            Anmol Korambe for exploring anime,
+            movies and series.
+
+            <br><br>
+
+            Built with HTML, CSS and JavaScript.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <div class="footer-title">
+        Anmol's Library
+    </div>
+
+    <div class="footer-instagram">
+
+        Instagram:
+
+        <a
+            href="https://www.instagram.com/anmol.k01/?utm_source=qr&igsh=MW04NmVsNW5hZnVzeg=="
+            target="_blank"
+            rel="noopener"
+        >
+            @anmol.k01
+        </a>
+
+    </div>
+
+    <div>
+        Made by
+        <strong>Anmol Korambe</strong>
+    </div>
+
+    <div class="footer-bottom">
+        © 2026 Anmol's Library.
+        All rights reserved.
+    </div>
+
+</footer>
+
+
+<!-- SIGNUP MODAL -->
+<div
+    class="modal"
+    id="signupModal"
+    onclick="closeOutside(event,'signupModal')"
+>
+
+    <div class="signup-content">
+
+        <button
+            class="close"
+            onclick="closeSignup()"
+        >
+            ×
+        </button>
+
+        <div class="modal-image">
+
+            <img
+                src="./sleep.png"
+                alt="Sleeping anime character"
+                onerror="
+                    this.style.display='none';
+                    document.getElementById('imageError').style.display='flex';
+                "
+            >
+
+            <div
+                id="imageError"
+                style="
+                    display:none;
+                    height:100%;
+                    align-items:center;
+                    justify-content:center;
+                    text-align:center;
+                    padding:20px;
+                    color:#aaa;
+                    font-size:14px;
+                "
+            >
+                Image not found.
+                <br><br>
+                Put your image beside
+                <b>index.html</b>
+                and name it:
+                <br><br>
+                <strong>sleep.png</strong>
+            </div>
+
+        </div>
+
+        <div class="modal-text">
+
+            <h2>
+                Heyyy! Anmol here 😴
+            </h2>
+
+            <p>
+                Hey! 👋😂
+
+                <br><br>
+
+                I know you want to sign up...
+
+                <br><br>
+
+                But bro, I'm seriously tired right now. 😭
+
+                <br>
+
+                My brain has officially entered sleep mode. 🧠💤
+
+                <br><br>
+
+                I'm going to sleep now...
+
+                <br>
+
+                BYEEEEEE 😘😂
+
+                <br><br>
+
+                Come back later!
+            </p>
+
+            <button
+                class="sleep-button"
+                onclick="closeSignup()"
+            >
+                Okay, Go Sleep 😴
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SUBSCRIPTION MODAL -->
+<div
+    class="modal subscription-modal"
+    id="subscriptionModal"
+    onclick="closeOutside(event,'subscriptionModal')"
+>
+
+    <div class="subscription-content">
+
+        <button
+            class="close"
+            onclick="closeSubscription()"
+        >
+            ×
+        </button>
+
+        <div class="subscription-header">
+
+            <div class="premium-label">
+                ANMOL'S LIBRARY PREMIUM
+            </div>
+
+            <h2>
+                Choose Your
+                <span>Membership</span>
+            </h2>
+
+            <p>
+                Pick your plan and unlock
+                your entertainment experience.
+            </p>
+
+        </div>
+
+
+        <div class="plans">
+
+
+            <!-- ₹199 -->
+            <div class="plan">
+
+                <div class="plan-icon">
+                    🎬
+                </div>
+
+                <h3>
+                    Monthly
+                </h3>
+
+                <div class="plan-description">
+                    Movies, Anime & Web Series
+                </div>
+
+                <div class="price">
+                    <strong>₹199</strong>
+                    <span>/ month</span>
+                </div>
+
+                <ul class="features">
+
+                    <li>Movies</li>
+                    <li>Anime</li>
+                    <li>Web Series</li>
+                    <li>Access to content</li>
+
+                </ul>
+
+                <button
+                    class="plan-button"
+                    onclick="selectPlan('Monthly Membership - ₹199/month')"
+                >
+                    Get Access 😎
+                </button>
+
+            </div>
+
+
+            <!-- ₹1999 -->
+            <div class="plan featured">
+
+                <div class="popular">
+                    MOST POPULAR
+                </div>
+
+                <div class="plan-icon">
+                    👑
+                </div>
+
+                <h3>
+                    Premium
+                </h3>
+
+                <div class="plan-description">
+                    Premium Movies, Anime & Web Series
+                </div>
+
+                <div class="price">
+                    <strong>₹1,999</strong>
+                    <span>/ year</span>
+                </div>
+
+                <ul class="features">
+
+                    <li>Premium Movies</li>
+                    <li>Premium Anime</li>
+                    <li>Web Series</li>
+                    <li>Priority content access</li>
+
+                </ul>
+
+                <button
+                    class="plan-button"
+                    onclick="selectPlan('Premium Membership - ₹1,999/year')"
+                >
+                    Get Access 😎
+                </button>
+
+            </div>
+
+
+            <!-- ₹7999 -->
+            <div class="plan">
+
+                <div class="plan-icon">
+                    ⚡
+                </div>
+
+                <h3>
+                    Ultimate
+                </h3>
+
+                <div class="plan-description">
+                    All-Access Premium Membership +
+                    Priority Access to Content
+                </div>
+
+                <div class="price">
+                    <strong>₹7,999</strong>
+                    <span>/ year</span>
+                </div>
+
+                <ul class="features">
+
+                    <li>
+                        All-Access Premium Membership
+                    </li>
+
+                    <li>
+                        Priority Access to Content
+                    </li>
+
+                    <li>
+                        Movies, Anime & Web Series
+                    </li>
+
+                    <li>
+                        Exclusive Membership Benefits
+                    </li>
+
+                </ul>
+
+                <button
+                    class="plan-button"
+                    onclick="selectPlan('Ultimate - ₹7,999/year')"
+                >
+                    Get Access 😎
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="subscription-note">
+            😂 This is a prank website —
+            no real payment is processed.
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<script>
+
+/* SIGNUP */
+
+function openSignup(){
+
+    document
+        .getElementById("signupModal")
+        .classList.add("active");
+
+}
+
+function closeSignup(){
+
+    document
+        .getElementById("signupModal")
+        .classList.remove("active");
+
+}
+
+
+/* SUBSCRIPTION */
+
+function openSubscription(){
+
+    document
+        .getElementById("subscriptionModal")
+        .classList.add("active");
+
+}
+
+function closeSubscription(){
+
+    document
+        .getElementById("subscriptionModal")
+        .classList.remove("active");
+
+}
+
+
+/* CLOSE OUTSIDE */
+
+function closeOutside(event,modalId){
+
+    const modal =
+        document.getElementById(modalId);
+
+    if(event.target === modal){
+
+        modal.classList.remove("active");
+
+    }
+
+}
+
+
+/* ESCAPE */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeSignup();
+            closeSubscription();
+
+        }
+
+    }
+);
+
+
+/* PLAN */
+
+function selectPlan(planName){
+
+    closeSubscription();
+
+    showToast(
+        "Selected: " +
+        planName +
+        " 😂 Payment is fake!"
+    );
+
+}
+
+
+/* TOAST */
+
+let toastTimer;
+
+function showToast(message){
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = message;
+
+    toast.classList.add("show");
+
+    clearTimeout(toastTimer);
+
+    toastTimer =
+        setTimeout(
+            function(){
+
+                toast.classList.remove("show");
+
+            },
+            4000
+        );
+
+}
+
+
+/* SEARCH */
+
+function searchContent(){
+
+    const search =
+        document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const cards =
+        document.querySelectorAll(
+            ".searchable"
+        );
+
+    cards.forEach(
+        function(card){
+
+            const text =
+                card.innerText.toLowerCase();
+
+            if(text.includes(search)){
+
+                card.classList.remove(
+                    "hidden-card"
+                );
+
+            }else{
+
+                card.classList.add(
+                    "hidden-card"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+</script>
+
+</body>
+</html>
